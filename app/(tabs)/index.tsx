@@ -1,15 +1,16 @@
 import {View,Text,Button,StyleSheet} from "react-native";
 import { useState } from "react";
 import React from "react"
+import CounterButton from "@/components/counterButton"; 
 export default function App(){
     const [count,setCount]=useState(0);
      return(
       <View style={styles.container}>
         <Text style={styles.count}>{count}</Text>
         <View style={styles.buttonContainer}>
-          <Button title="Increase" onPress={()=>setCount(count+1)}/>
-          <Button title="Decrease" onPress={()=>setCount(count-1)}/>
-          <Button title="Reset" onPress={()=>setCount(0)}/>
+          <CounterButton title="Increase" onPress={()=>setCount(count+1)}/>
+          <CounterButton title="Decrease" onPress={()=>setCount(count-1)} disabled={count === 0} />
+          <CounterButton title="Reset" onPress={()=>setCount(0)}/>
         </View>
       </View>
      )
